@@ -71,6 +71,9 @@ def obtener_oportunidad(event, ctx):
     oportunidad = _con_ponderado(_oportunidad_visible(con, ctx, entero(ruta(event, 'id'), 'id', minimo=1)))
     oportunidad['cotizaciones'] = db.filas(
         con, 'SELECT * FROM cotizaciones WHERE oportunidad_id = :o ORDER BY id DESC', o=oportunidad['id'])
+    for cotizacion in oportunidad['cotizaciones']:
+        # URL firmada (1 hora) al HTML guardado en S3; firmar es local, no llama a S3.
+        cotizacion['documento_url'] = _url_documento(cotizacion['documento_key']) if cotizacion['documento_key'] else None
     return responder(200, oportunidad)
 
 
