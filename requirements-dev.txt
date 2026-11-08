@@ -1,0 +1,4 @@
+# Para correr los tests en la laptop o en la EC2 (no se despliega).
+pytest
+boto3
+pg8000==1.31.6

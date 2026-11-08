@@ -1,0 +1,13 @@
+{
+  "name": "crm-grupo1-ms4-oportunidades",
+  "private": true,
+  "description": "CRM SaaS · CS2032 Grupo 1 · ms4-oportunidades",
+  "scripts": {
+    "desplegar": "serverless deploy --stage dev",
+    "eliminar": "serverless remove --stage dev"
+  },
+  "devDependencies": {
+    "serverless": "3.40.0",
+    "serverless-python-requirements": "6.1.2"
+  }
+}
